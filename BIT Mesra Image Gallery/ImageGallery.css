@@ -1,0 +1,125 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-color:gray;
+    --green-color:darkgreen;
+    --red-color:red;
+    --white-color:white;
+    --color-darkgoldenrod:black;
+    --Filter-Color:black
+}
+.DarkTheme{
+    --bg-color:white;
+    --white-color:black;
+    --color-darkgoldenrod:white;
+    --Filter-Color:white
+}
+.wrapper{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--white-color);
+    background-color: #E1EBEE;
+}
+h1{
+    font-size: 4rem;
+    top: 0.5rem;
+    color: gray;
+    font-weight: 1200;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: outset;
+    border-width: 3px;
+    font-family: 'Forum', cursive;
+    animation: reveal 3000ms ease-in-out forwards 200ms, glow 3000ms linear infinite 2000ms;
+}
+@keyframes reveal {
+    80%{
+      letter-spacing: 4px;
+    }
+    100% {
+      background-size: 300% 300%;
+    }
+  }
+  @keyframes glow {
+    50% {
+      text-shadow: 1px 1px 15px #ffd500;
+    }
+}
+.gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    position: relative;
+    width: 92.5%;
+    margin: 1rem 1rem 1rem 1rem;
+    border-radius: 0px 40px 0px 40px;
+    overflow: hidden;
+}
+.image img{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+    filter: grayscale(80%);
+}
+.image:hover{
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px var(--Filter-Color)); 
+    transition: 0.5s;
+}
+.image img:hover{
+    filter: grayscale(0%);
+    filter: contrast(1.2);
+    filter: brightness(1.2);
+}
+.MyHeader{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width:1000px){
+    #text{
+        font-size: 3.5rem;
+    }
+    .gallery{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media (max-width:850px){
+    #text{
+        font-size: 3rem;
+    }
+    .gallery{
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
+    .image{
+        width: 95%;
+        margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+    }
+}
+@media (max-width:600px){
+    #text{
+        font-size: 2.5rem;
+    }
+    .gallery{
+        grid-template-columns: 1fr 1fr ;
+    }
+}
+@media (max-width:300px){
+    #text{
+        font-size: 2rem;
+    }
+    .gallery{
+        grid-template-columns: 1fr ;
+    }
+}
+
